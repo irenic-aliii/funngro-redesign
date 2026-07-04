@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-ink font-body antialiased;
+    font-feature-settings: "ss01" 1, "cv01" 1;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background: rgba(62, 207, 142, 0.28);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #3ECF8E;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #07100C;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1B2A22;
+    border-radius: 8px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  /* Fine 1px grid used behind heroes/section openers for editorial structure */
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(62, 207, 142, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(62, 207, 142, 0.055) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(65% 60% at 50% 20%, black 0%, transparent 78%);
+  }
+
+  /* Gradient text used sparingly for the single emphasis word per view */
+  .text-mint-gradient {
+    background: linear-gradient(100deg, #5EE8A8 0%, #3ECF8E 45%, #2A9D6F 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .font-serif-italic {
+    font-family: var(--font-serif), serif;
+    font-style: italic;
+  }
+
+  /* Numeric/mono treatment for eyebrows and ledger-style figures */
+  .ledger {
+    font-family: var(--font-mono), monospace;
+    letter-spacing: 0.16em;
+  }
+
+  .card-sheen-overlay {
+    background: linear-gradient(155deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 42%);
+  }
+
+  .glass {
+    background: rgba(16, 27, 21, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
